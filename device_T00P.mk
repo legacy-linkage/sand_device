@@ -22,3 +22,12 @@ $(call inherit-product, build/target/product/full.mk)
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_T00P
 PRODUCT_DEVICE := T00P
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.target.rc
+
+PRODUCT_PACKAGES += \
+    init.qcom.rc \
+    init.recovery.qcom.rc
