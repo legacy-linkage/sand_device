@@ -78,5 +78,11 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
+# Display
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_ION := true
+USE_OPENGL_RENDERER := true
+
 # inherit from the proprietary version
 -include vendor/asus/T00P/BoardConfigVendor.mk
