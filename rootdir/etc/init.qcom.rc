@@ -32,7 +32,7 @@
 ###import init.asus.usb.rc
 #ASUS_BSP--- "[USB][NA][Spec] Add ASUS USB support"
 
-###import init.target.rc
+import init.target.rc
 
 #ASUS_BSP+++ jeffery_hu@asus.com import init.asus.debug.rc
 ###import init.asus.debugtool.rc
