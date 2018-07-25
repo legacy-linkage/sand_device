@@ -3,6 +3,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 # $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
+# Overlay
 $(call inherit-product-if-exists, vendor/asus/T00P/T00P-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/asus/T00P/overlay
@@ -24,6 +25,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_T00P
 PRODUCT_DEVICE := T00P
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
+
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Lights
 PRODUCT_PACKAGES += \
