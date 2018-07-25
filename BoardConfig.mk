@@ -115,7 +115,7 @@ EXTENDED_FONT_FOOTPRINT := true
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Memory
-######## MALLOC_IMPL := dlmalloc
+MALLOC_IMPL := dlmalloc
 
 # inherit from the proprietary version
 -include vendor/asus/T00P/BoardConfigVendor.mk

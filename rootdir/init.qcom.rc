@@ -25,17 +25,17 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-###import init.asus.rc
+import init.asus.rc
 
 #ASUS_BSP+++ "[USB][NA][Spec] Add ASUS USB support"
 #import init.qcom.usb.rc
-###import init.asus.usb.rc
+import init.asus.usb.rc
 #ASUS_BSP--- "[USB][NA][Spec] Add ASUS USB support"
 
 import init.target.rc
 
 #ASUS_BSP+++ jeffery_hu@asus.com import init.asus.debug.rc
-###import init.asus.debugtool.rc
+import init.asus.debugtool.rc
 #ASUS_BSP--- jeffery_hu@asus.com import init.asus.debug.rc
 # ASUS_BSP +++ Jeffery_Hu "disable debugfs for CTS fail:testAllFilesInSysAreNotWritable"
 # on early-init

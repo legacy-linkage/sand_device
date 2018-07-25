@@ -28,8 +28,21 @@ PRODUCT_DEVICE := T00P
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.target.rc
-
-PRODUCT_PACKAGES += \
+    init.A500KL.rc \
+    init.asus.debugtool.rc \
+    init.asus.rc \
+    init.asus.usb.rc \
+    init.class_main.sh \
+    init.mdm.sh \
+    init.qcom.class_core.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.factory.sh \
     init.qcom.rc \
-    init.recovery.qcom.rc
+    init.qcom.sh \
+    init.qcom.ssr.sh \
+    init.qcom.syspart_fixup.sh \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh \
+    init.recovery.qcom.rc \
+    init.target.rc \
+    ueventd.qcom.rc
