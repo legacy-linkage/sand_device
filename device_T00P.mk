@@ -102,3 +102,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+
+# ADB Debugging
+ifeq ($(PROPERTY_ADB_DEBUGGING),true)
+	ADDITIONAL_DEFAULT_PROPERTIES += \
+		ro.adb.secure=0 \
+		ro.secure=0 \
+		ro.debuggable=1
+
+	PRODUCT_PROPERTY_OVERRIDES += \
+		persist.sys.usb.config=mtp,adb
+endif
