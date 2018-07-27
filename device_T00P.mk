@@ -37,14 +37,14 @@ TARGET_SCREEN_WIDTH := 720
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Audio
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
     audio.primary.msm8226 \
     audio.r_submix.default \
     audio.usb.default
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
@@ -55,6 +55,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
+
+# IRSC
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
 # Lights
 PRODUCT_PACKAGES += \
