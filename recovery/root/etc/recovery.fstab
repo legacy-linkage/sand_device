@@ -22,5 +22,5 @@
 /dev/block/platform/msm_sdcc.1/by-name/aboot        aboot           emmc    defaults                                                                       defaults
 /dev/block/platform/msm_sdcc.1/by-name/abootbak     abootbak        emmc    defaults                                                                       defaults
 /dev/block/platform/msm_sdcc.1/by-name/asusfw       asusfw          ext4    defaults                                                                       defaults
-/dev/block/platform/msm_sdcc.1/by-name/tombstones   /tombstone      ext4    defaults                                                                       defaults
+/dev/block/platform/msm_sdcc.1/by-name/tombstones   /tombstones     ext4    defaults                                                                       defaults
 /dev/block/platform/msm_sdcc.1/by-name/APD          /APD            ext4    defaults                                                                       defaults
