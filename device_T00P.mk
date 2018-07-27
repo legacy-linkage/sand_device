@@ -26,9 +26,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_T00P
 PRODUCT_DEVICE := T00P
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
@@ -103,13 +100,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
+
 # ADB Debugging
 ifeq ($(PROPERTY_ADB_DEBUGGING),true)
-	ADDITIONAL_DEFAULT_PROPERTIES += \
-		ro.adb.secure=0 \
-		ro.secure=0 \
-		ro.debuggable=1
-
-	PRODUCT_PROPERTY_OVERRIDES += \
-		persist.sys.usb.config=mtp,adb
+    ADDITIONAL_DEFAULT_PROPERTIES += \
+        ro.adb.secure=0 \
+        ro.secure=0 \
+        ro.debuggable=1
 endif
