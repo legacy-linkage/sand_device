@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+export ASUS_BUILD_PROJECT ?= A500KL
+
 DEVICE_PATH := device/asus/T00P
 
 # Assert
@@ -45,14 +47,15 @@ TARGET_NO_BOOTLOADER := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 earlyprintk androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00008000
 BOARD_KERNEL_PAGESIZE := 2048
-# BOARD_KERNEL_SEPARATED_DT := true
-# BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-# BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/asus/T00P/dt.img
-# TARGET_KERNEL_SOURCE := kernel/asus/T00P
-TARGET_PREBUILT_KERNEL := device/asus/T00P/kernel
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+#### BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/asus/T00P/dt.img
+TARGET_KERNEL_SOURCE := kernel/asus/T00P
+#### TARGET_PREBUILT_KERNEL := device/asus/T00P/kernel
 TARGET_KERNEL_CONFIG := a500kl_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+#### TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 #### USE_CLANG_PLATFORM_BUILD := true
 
 # Partitions
