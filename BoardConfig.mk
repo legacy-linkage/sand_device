@@ -20,6 +20,8 @@ DEVICE_PATH := device/asus/T00P
 # Assert
 TARGET_OTA_ASSERT_DEVICE := T00P,ASUS_T00P
 
+TARGET_BLOCKIMGDIFF_VERSIONS := 1
+
 BOARD_VENDOR := asus-qcom
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
@@ -42,6 +44,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 earlyprintk androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
@@ -108,7 +111,7 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/wled:backlight/brightness"
 TW_SECONDARY_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
 # Release tools
-TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
+####TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Keymaster
 ####TARGET_KEYMASTER_WAIT_FOR_QSEE := true
