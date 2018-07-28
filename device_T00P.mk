@@ -9,18 +9,15 @@ $(call inherit-product-if-exists, vendor/asus/T00P/T00P-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/asus/T00P/overlay
 
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/asus/T00P/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+ifneq ($(TARGET_PREBUILT_KERNEL),)
+    PRODUCT_COPY_FILES += \
+        $(TARGET_PREBUILT_KERNEL):kernel
 endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-# $(call inherit-product, build/target/product/full.mk)
+#### $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_T00P
@@ -37,7 +34,7 @@ TARGET_SCREEN_WIDTH := 720
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Audio
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
     audio.primary.msm8226 \
@@ -96,9 +93,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.target.rc \
     ueventd.qcom.rc
-
-#    init.recovery.qcom.rc
-
 
 # Thermal
 PRODUCT_COPY_FILES += \
