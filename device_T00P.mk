@@ -5,6 +5,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 $(call inherit-product-if-exists, vendor/asus/T00P/T00P-vendor.mk)
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+#### $(call inherit-product, build/target/product/full.mk)
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_NAME := full_T00P
+PRODUCT_DEVICE := T00P
+
 # Prebuilt kernel
 ifneq ($(TARGET_PREBUILT_KERNEL),)
     PRODUCT_COPY_FILES += \
@@ -36,13 +44,16 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-#### $(call inherit-product, build/target/product/full.mk)
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_T00P
-PRODUCT_DEVICE := T00P
+# ADB Debugging
+ifeq ($(PROPERTY_ADB_DEBUGGING),true)
+    ADDITIONAL_DEFAULT_PROPERTIES += \
+        ro.adb.secure=0 \
+        ro.secure=0 \
+        ro.debuggable=1
+endif
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -74,6 +85,30 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# Camera
+PRODUCT_PACKAGES += \
+    libxml2
+
+# Display
+PRODUCT_PACKAGES += \
+    copybit.msm8226 \
+    gralloc.msm8226 \
+    hwcomposer.msm8226 \
+    memtrack.msm8226
+
+# Ebtables
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libebtc
+
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    FMRecord \
+    libqcomfm_jni \
+    qcom.fmradio
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8226 \
@@ -82,6 +117,10 @@ PRODUCT_PACKAGES += \
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+
+# Keystore
+PRODUCT_PACKAGES += \
+    keystore.msm8226
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -94,6 +133,18 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+
+# OMX
+PRODUCT_PACKAGES += \
+    libdashplayer \
+    libOmxCore \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
 
 # Power
 PRODUCT_PACKAGES += \
@@ -125,8 +176,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
 # USB
-####PRODUCT_PACKAGES += \
-####    com.android.future.usb.accessory
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -143,9 +194,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libcurl \
-####    libqsap_sdk \
-####    libQWiFiSoftApCfg \
-####    libwcnss_qmi \
+    libqsap_sdk \
+    libQWiFiSoftApCfg \
+    libwcnss_qmi \
     wcnss_service
 
 PRODUCT_COPY_FILES += \
@@ -153,14 +204,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
-# ADB Debugging
-ifeq ($(PROPERTY_ADB_DEBUGGING),true)
-    ADDITIONAL_DEFAULT_PROPERTIES += \
-        ro.adb.secure=0 \
-        ro.secure=0 \
-        ro.debuggable=1
-endif
