@@ -14,7 +14,8 @@ on init
 #ASUS BSP Freeman:for glove mode +++
 setprop  persist.asus.glove   0
 setprop  persist.asus.instant_camera   0
-setprop  ro.epad.mount_point.microsd "/Removable/MicroSD"
+#setprop  ro.epad.mount_point.microsd "/Removable/MicroSD"
+setprop  ro.epad.mount_point.microsd "/storage/sdcard1"
 setprop  ro.bsp.app2sd  true
 
 on property:persist.asus.glove=0

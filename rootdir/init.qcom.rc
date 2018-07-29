@@ -53,13 +53,13 @@ on init
     # mkdir /storage/emulated/legacy 0555 root root
     mkdir /mnt/media_rw/microsd 0700 media_rw media_rw
 # ASUS_BSP +++ Allen_Zhuang "change external sdcard path"
-#    mkdir /storage/sdcard1 0700 root root
+    mkdir /storage/sdcard1 0700 root root
 # ASUS_BSP --- Allen_Zhuang "change external sdcard path"
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
 # ASUS_BSP +++ Allen_Zhuang "change external sdcard path"
-#    export SECONDARY_STORAGE /storage/sdcard1
-    export SECONDARY_STORAGE /Removable/MicroSD
+    export SECONDARY_STORAGE /storage/sdcard1
+#    export SECONDARY_STORAGE /Removable/MicroSD
 # ASUS_BSP --- Allen_Zhuang "change external sdcard path"
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
     export EMULATED_STORAGE_TARGET /storage/emulated
@@ -828,7 +828,8 @@ service sdcard /system/bin/sdcard -u 1023 -g 1023 -r 1 -l /data/media /mnt/shell
     class late_start
 
 # ASUS_BSP +++ Allen_Zhuang "change external sdcard path"
-service fuse_microsd /system/bin/sdcard -u 1023 -g 1023 -w 1023 -r 0 -d /mnt/media_rw/microsd /Removable/MicroSD
+service fuse_microsd /system/bin/sdcard -u 1023 -g 1023 -w 1023 -r 0 -d /mnt/media_rw/microsd /storage/sdcard1
+#service fuse_microsd /system/bin/sdcard -u 1023 -g 1023 -w 1023 -r 0 -d /mnt/media_rw/microsd /Removable/MicroSD
 #service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
 # ASUS_BSP --- Allen_Zhuang "change external sdcard path"
     class late_start
