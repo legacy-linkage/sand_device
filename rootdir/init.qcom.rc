@@ -824,11 +824,12 @@ service profiler_daemon /system/bin/profiler_daemon
     disabled
 
 # virtual sdcard daemon running as media_rw (1023)
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -r 1 -l /data/media /mnt/shell/emulated
+#service sdcard /system/bin/sdcard -u 1023 -g 1023 -r 1 -l /data/media /mnt/shell/emulated
+service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
 
 # ASUS_BSP +++ Allen_Zhuang "change external sdcard path"
-service fuse_microsd /system/bin/sdcard -u 1023 -g 1023 -w 1023 -r 0 -d /mnt/media_rw/microsd /storage/sdcard1
+service fuse_microsd /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/microsd /storage/sdcard1
 #service fuse_microsd /system/bin/sdcard -u 1023 -g 1023 -w 1023 -r 0 -d /mnt/media_rw/microsd /Removable/MicroSD
 #service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
 # ASUS_BSP --- Allen_Zhuang "change external sdcard path"
