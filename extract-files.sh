@@ -25,7 +25,10 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 CM_ROOT="$MY_DIR"/../../..
 
-HELPER="$CM_ROOT"/vendor/cm/build/tools/extract_utils.sh
+export OAT2DEXJAR="$MY_DIR"/smali/oat2dex.jar
+
+#HELPER="$CM_ROOT"/vendor/cm/build/tools/extract_utils.sh
+HELPER="$MY_DIR"/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1

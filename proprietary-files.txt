@@ -353,7 +353,7 @@ vendor/lib/liboemcrypto.so
 #vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS
--priv-app//com.qualcomm.location/com.qualcomm.location.apk
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 etc/permissions/com.qualcomm.location.xml
 etc/gps.conf
 etc/izat.conf

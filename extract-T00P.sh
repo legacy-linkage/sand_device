@@ -23,6 +23,6 @@ export DEVICE=
 export DEVICE_COMMON=T00P
 export VENDOR=asus
 
-export DEVICE_BRINGUP_YEAR=2016
+export DEVICE_BRINGUP_YEAR=2018
 
 ./../../$VENDOR/$DEVICE_COMMON/extract-files.sh $@
