@@ -114,7 +114,7 @@ TW_SECONDARY_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 ####TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Keymaster
-####TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Audio
 AUDIO_FEATURE_ENABLED_FM := true
