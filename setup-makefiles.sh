@@ -71,6 +71,7 @@ PRODUCT_PACKAGES += \\
     libqmi_client_qmux \\
     libdsutils \\
     libmdmdetect \\
+    liblisten \\
     libqmi_cci
 
 \$(call inherit-product, vendor/$VENDOR/$DEVICE/asus-blobs.mk)
