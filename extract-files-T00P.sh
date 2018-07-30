@@ -1,4 +1,4 @@
-#!/bin/bash -u
+#!/bin/bash
 
 #
 # extract-files-T00P ["adb" | "ota" | <OTA image file> | <basedir of device>]
