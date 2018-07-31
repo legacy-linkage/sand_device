@@ -178,6 +178,30 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# system etc configs
+PRODUCT_PACKAGES += \
+    init.asus.audbg.sh \
+    init.asus.cache-partition.sh \
+    init.asus.check_asdf.sh \
+    init.asus.checkdatalog.sh \
+    init.asus.evtlog.sh \
+    init.asus.hcidump.sh \
+    init.asus.kernelmessage.sh \
+    init.asus.maxxaudio.sh \
+    init.asus.ramdump.sh \
+    init.asus.set_time.sh \
+    init.ath3k.bt.sh \
+    init.crda.sh \
+    init.qcom.audio.sh \
+    init.qcom.bt.sh \
+    init.qcom.coex.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.fm.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.uicc.sh \
+    init.qcom.wifi.sh
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
