@@ -12,18 +12,13 @@ lib/libarcsoft_panorama_burstcapture.so
 lib/libarcsoft_sensorndk.so
 lib/libcameraap.so
 lib/libcamera_pano.so
-lib/libcamera_client.so
-lib/libcameraservice.so
 lib/libcamera_defocus.so
-lib/libcamera_metadata.so
 lib/libxditk_AT.so
 lib/libxditk_ISP.so
 lib/DataSet/ISP/libxditk_isp.bin
 lib/DataSet/ISP/ditCL.bin
 lib/libchromatix_imx135_liveshot.so
-lib/libfilterfw.so
 lib/libfilterpack_facedetect.so
-lib/libfilterpack_imageproc.so
 lib/libmm-qcamera.so
 lib/libmorpho_panorama_gp.so
 vendor/lib/libjpegdhw.so
@@ -355,7 +350,6 @@ vendor/lib/liboemcrypto.so
 # GPS
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
 etc/permissions/com.qualcomm.location.xml
-etc/gps.conf
 etc/izat.conf
 etc/quipc.conf
 etc/sap.conf
