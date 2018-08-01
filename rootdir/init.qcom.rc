@@ -44,7 +44,7 @@ import init.asus.debugtool.rc
 #ASUSDEBUG -
 
 on init
-    # For debugging
+    # For debugging (3:KLOG_ERROR_LEVEL <= loglevel <= 7:KLOG_DEBUG_LEVEL)
     # loglevel 7
 
     # Set permissions for persist partition
