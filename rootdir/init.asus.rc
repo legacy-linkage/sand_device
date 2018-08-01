@@ -17,7 +17,7 @@ on post-fs-data
     mkdir /data/asusdata 0660 root shell
     wait /dev/block/platform/msm_sdcc.1/by-name/asusdata
     exec /system/bin/e2fsck -p /dev/block/platform/msm_sdcc.1/by-name/asusdata
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/asusdata /data/asusdata ro nosuid nodev barrier=1 noauto_da_alloc context=u:object_r:asus_data_file:s0
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/asusdata /data/asusdata ro nosuid nodev barrier=1 noauto_da_alloc ####security context opt might not work properly#### context=u:object_r:asus_data_file:s0
 
     chmod 0775 /data/asusdata
     chown shell shell /data/asusdata

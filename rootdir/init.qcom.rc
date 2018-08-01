@@ -44,6 +44,9 @@ import init.asus.debugtool.rc
 #ASUSDEBUG -
 
 on init
+    # For debugging
+    # loglevel 7
+
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     # See storage config details at http://source.android.com/tech/storage/
